@@ -14,4 +14,8 @@ window.EmberTodo = Ember.Application.create(
 EmberTodo.deferReadiness()
 
 $ ->
-  EmberTodo.advanceReadiness() if $("#ember-view").length > 0
+  rootElement = $("#ember-view")
+
+  if rootElement.length > 0
+    window.location.assign("#/" + rootElement.data("route"))
+    EmberTodo.advanceReadiness()
