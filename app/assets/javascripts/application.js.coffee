@@ -8,4 +8,5 @@
 # for more details see: http://emberjs.com/guides/application/
 window.EmberTodo = Ember.Application.create(
   LOG_TRANSITIONS: true
+  rootElement: "#ember-view"
 )

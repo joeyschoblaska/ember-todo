@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
 gem "active_model_serializers"
+gem "autoprefixer-rails"
+gem "bootstrap-sass", "~> 3.2.0"
 gem "coffee-rails", "~> 4.0.0"
 gem "ember-rails"
 gem "haml-rails"
