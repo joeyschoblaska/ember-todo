@@ -12,6 +12,11 @@ class ItemsController < ApplicationController
     render :json => @item.update_attributes(item_params)
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    render :json => @item.destroy
+  end
+
   private
 
   def item_params

@@ -4,9 +4,17 @@ EmberTodo.ItemController = Ember.ObjectController.extend
       @set("isEditing", true)
 
     updateItem: ->
-      @get("model").save()
       @set("isEditing", false)
 
+      if Ember.isEmpty(@get("description"))
+        Ember.run.debounce(this, "send", "deleteItem", 100)
+      else
+        @get("model").save()
+
+    deleteItem: ->
+      item = @get("model")
+      item.deleteRecord()
+      item.save()
 
   isEditing: false
 
