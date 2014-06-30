@@ -3,6 +3,13 @@ EmberTodo.ItemController = Ember.ObjectController.extend
     editItem: ->
       @set("isEditing", true)
 
+    updateItem: ->
+      model = @get("model")
+      model.set("description", @get("description"))
+      model.save()
+      @set("isEditing", false)
+
+
   isEditing: false
 
   completed: ((key, value) ->

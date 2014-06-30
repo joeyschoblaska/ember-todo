@@ -8,7 +8,7 @@
     {{#each itemController="item"}}
       <li {{bind-attr class="completed:completed isEditing:editing"}}>
         {{#if isEditing}}
-          <input class="edit">
+          {{input type="text" class="edit" value=description action="updateItem"}}
         {{else}}
           {{input type="checkbox" checked=completed class="toggle"}}
           <label {{action "editItem" on="doubleClick"}}>{{description}}</label><button class="destroy"></button>
