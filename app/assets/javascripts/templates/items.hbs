@@ -11,7 +11,8 @@
           {{input type="text" class="edit" value=description action="updateItem" focus-out="updateItem"}}
         {{else}}
           {{input type="checkbox" checked=completed class="toggle"}}
-          <label {{action "editItem" on="doubleClick"}}>{{description}}</label><button class="destroy"></button>
+          <label {{action "editItem" on="doubleClick"}}>{{description}}</label>
+          <button class="destroy" {{action "deleteItem"}}></button>
         {{/if}}
       </li>
     {{/each}}
