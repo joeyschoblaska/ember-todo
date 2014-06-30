@@ -7,9 +7,14 @@ class ItemsController < ApplicationController
     render :json => Item.create!(item_params)
   end
 
+  def update
+    @item = Item.find(params[:id])
+    render :json => @item.update_attributes(item_params)
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:description)
+    params.require(:item).permit(:description, :completed)
   end
 end
