@@ -1,6 +1,6 @@
 <ul>
   {{#each}}
-    <li>{{description}}</li>
+    <li {{bind-attr class="completed:completed"}}>{{description}}</li>
   {{/each}}
 </ul>
 
