@@ -7,3 +7,11 @@ EmberTodo.ItemsController = Ember.ArrayController.extend
       todo.save()
 
       @set("newItemDescription", "")
+
+  numRemaining: ( ->
+    @filterBy("completed", false).get("length")
+  ).property("@each.completed")
+
+  numRemainingInflection: ( ->
+    if @get("numRemaining") == 1 then "item" else "items"
+  ).property("numRemaining")
