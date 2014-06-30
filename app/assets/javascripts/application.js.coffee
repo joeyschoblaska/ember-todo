@@ -18,3 +18,7 @@ $ ->
   if rootElement.length > 0
     window.location.assign("#/" + rootElement.data("route"))
     EmberTodo.advanceReadiness()
+
+    token = $('meta[name="csrf-token"]').attr('content')
+    $.ajaxPrefilter (options, originalOptions, xhr) ->
+      return xhr.setRequestHeader('X-CSRF-Token', token)
