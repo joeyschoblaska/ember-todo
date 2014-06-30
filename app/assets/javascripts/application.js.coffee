@@ -8,6 +8,7 @@
 # for more details see: http://emberjs.com/guides/application/
 window.EmberTodo = Ember.Application.create
   LOG_TRANSITIONS: true
+  LOG_TRANSITIONS_INTERNAL: false
   rootElement: "#ember-view"
 
 EmberTodo.deferReadiness()
