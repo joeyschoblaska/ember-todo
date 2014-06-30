@@ -5,3 +5,5 @@ EmberTodo.ItemsController = Ember.ArrayController.extend
         description: @get("newItemDescription")
 
       todo.save()
+
+      @set("newItemDescription", "")
