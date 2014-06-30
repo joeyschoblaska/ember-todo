@@ -1,4 +1,10 @@
 EmberTodo.ItemController = Ember.ObjectController.extend
+  actions:
+    editItem: ->
+      @set("isEditing", true)
+
+  isEditing: false
+
   completed: ((key, value) ->
     model = @get("model")
 
