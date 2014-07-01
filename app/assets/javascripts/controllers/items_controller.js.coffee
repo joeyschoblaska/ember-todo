@@ -1,12 +1,17 @@
 EmberTodo.ItemsController = Ember.ArrayController.extend
   actions:
     createItem: ->
-      todo = @store.createRecord "item",
+      item = @store.createRecord "item",
         description: @get("newItemDescription")
 
-      todo.save()
+      item.save()
 
       @set("newItemDescription", "")
+
+    clearCompleted: ->
+      for item in @filterBy("completed", true)
+        item.deleteRecord()
+        item.save()
 
   numRemaining: ( ->
     @filterBy("completed", false).get("length")
@@ -15,3 +20,11 @@ EmberTodo.ItemsController = Ember.ArrayController.extend
   numRemainingInflection: ( ->
     if @get("numRemaining") == 1 then "item" else "items"
   ).property("numRemaining")
+
+  numCompleted: ( ->
+    @filterBy("completed", true).get("length")
+  ).property("@each.completed")
+
+  anyCompleted: ( ->
+    @get("numCompleted") > 0
+  ).property("numCompleted")
