@@ -28,3 +28,7 @@ EmberTodo.ItemsController = Ember.ArrayController.extend
   anyCompleted: ( ->
     @get("numCompleted") > 0
   ).property("numCompleted")
+
+  allCompleted: ( ->
+    @get("numRemaining") == 0 and @get("numCompleted") > 0
+  ).property("@each.completed")
