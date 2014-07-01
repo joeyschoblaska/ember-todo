@@ -3,3 +3,4 @@
 EmberTodo.Router.map ->
   @resource "items", ->
     @route "active"
+    @route "completed"
